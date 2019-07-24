@@ -6,7 +6,7 @@ while play:
     barlist.sort()
     half = barlist.pop(0)/2
     barlist.append(half)
-    if sum(barlist)>=T:
+
 
 
 
