@@ -8,21 +8,20 @@
 # 7. 이전 단계로 돌아간다. used의 마지막 인덱스를 가리키고 있음.
 # 8. 선택했던 숫자는 취소한다. 남은 숫자가 없으면 이전 단계로 간다.
 # 9. 선택했던 숫자는 취소한다. 오른쪽에 남은 숫자가 있으면 선택한다.
-K,M = 5,3
+
+K,M = 6,3
 used=[0]*K
-list=[i for i in range(1,K+1)]
+list=[i for i in range(0,K)]
 result=[0]*M
+val = []
 def f(n,k,m):
     if n==m:
-        # print(result)
-        return
+        val.append(result[:])
     else:
         for i in range(k):
             if used[i]==0:
                 used[i]=1
                 result[n]=list[i]
-                print(result)
                 f(n+1,k,m)
                 used[i]=0
-                print(used)
 f(0,K,M)

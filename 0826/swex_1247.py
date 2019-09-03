@@ -1,7 +1,8 @@
 T = int(input())
 
-def comb(n,k):
-    global cusorder, used, result, customerx, customery, cx,cy,hx,hy, mindistance
+def per(n,k,cx,cy,hx,hy):
+    global cusorder, used, result, customerx, customery
+    global mindistance
     if n==k:
         nx,ny = cx,cy
         dist = 0
@@ -17,7 +18,7 @@ def comb(n,k):
             if used[i]==0:
                 used[i]=1
                 result[n]=cusorder[i]
-                comb(n+1,k)
+                per(n+1,k,cx,cy,hx,hy)
                 used[i]=0
 
 for i in range(T):
@@ -33,7 +34,7 @@ for i in range(T):
     for j in range(4,2*N+4,2):
         customerx.append(arr[j])
         customery.append(arr[j+1])
-    comb(0,N)
+    per(0,N,cx,cy,hx,hy)
     best = min(mindistance)
     print(f"#{i+1} {best}")
 
